@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "CEO",
+    "description": "Chief Executive Officer - Responsible for overall company strategy and operations",
+    "parentId": null
+  },
+  {
+    "id": 2,
+    "name": "CTO",
+    "description": "Chief Technology Officer - Leads technology strategy and innovation",
+    "parentId": 1
+  },
+  {
+    "id": 3,
+    "name": "CFO",
+    "description": "Chief Financial Officer - Manages financial planning and risk management",
+    "parentId": 1
+  },
+  {
+    "id": 4,
+    "name": "COO",
+    "description": "Chief Operating Officer - Oversees day-to-day administrative and operational functions",
+    "parentId": 1
+  },
+  {
+    "id": 5,
+    "name": "HR Director",
+    "description": "Human Resources Director - Manages HR policies, recruiting, and employee relations",
+    "parentId": 1
+  },
+  {
+    "id": 6,
+    "name": "Project Manager",
+    "description": "Technology Project Manager - Oversees technology projects and teams",
+    "parentId": 2
+  },
+  {
+    "id": 7,
+    "name": "Product Owner",
+    "description": "Product Owner - Responsible for maximizing product value and managing the product backlog",
+    "parentId": 6
+  },
+  {
+    "id": 8,
+    "name": "Tech Lead",
+    "description": "Technical Lead - Provides technical guidance and leadership to development teams",
+    "parentId": 7
+  },
+  {
+    "id": 9,
+    "name": "Frontend Developer",
+    "description": "Frontend Developer - Builds user interfaces and client-side applications",
+    "parentId": 8
+  },
+  {
+    "id": 10,
+    "name": "Backend Developer",
+    "description": "Backend Developer - Develops server-side logic and databases",
+    "parentId": 8
+  },
+  {
+    "id": 11,
+    "name": "DevOps Engineer",
+    "description": "DevOps Engineer - Manages infrastructure and deployment pipelines",
+    "parentId": 8
+  },
+  {
+    "id": 12,
+    "name": "QA Engineer",
+    "description": "Quality Assurance Engineer - Ensures software quality through testing",
+    "parentId": 7
+  },
+  {
+    "id": 13,
+    "name": "Scrum Master",
+    "description": "Scrum Master - Facilitates agile processes and removes impediments",
+    "parentId": 7
+  },
+  {
+    "id": 14,
+    "name": "Chief Accountant",
+    "description": "Chief Accountant - Oversees accounting operations and financial reporting",
+    "parentId": 3
+  },
+  {
+    "id": 15,
+    "name": "Financial Analyst",
+    "description": "Financial Analyst - Analyzes financial data and prepares reports",
+    "parentId": 14
+  },
+  {
+    "id": 16,
+    "name": "Accounts Payable",
+    "description": "Accounts Payable Specialist - Manages vendor payments and expenses",
+    "parentId": 14
+  },
+  {
+    "id": 17,
+    "name": "Internal Audit",
+    "description": "Internal Auditor - Evaluates financial and operational controls",
+    "parentId": 3
+  },
+  {
+    "id": 18,
+    "name": "Product Manager",
+    "description": "Product Manager - Defines product vision and roadmap",
+    "parentId": 4
+  },
+  {
+    "id": 19,
+    "name": "Operations Manager",
+    "description": "Operations Manager - Ensures efficient business operations",
+    "parentId": 4
+  },
+  {
+    "id": 20,
+    "name": "Customer Relations",
+    "description": "Customer Relations Manager - Manages customer relationships and satisfaction",
+    "parentId": 4
+  }
+]

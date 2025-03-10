@@ -5,21 +5,16 @@ import { useDispatch } from 'react-redux';
 import { Container, Title, Text, Group, Button } from '@mantine/core';
 import { setPositions } from '@/store/positionSlice';
 import Link from 'next/link';
-
-// Sample initial data for demonstration
-const initialPositions = [
-  { id: 1, name: 'CEO', description: 'Chief Executive Officer', parentId: null },
-  { id: 2, name: 'CTO', description: 'Chief Technology Officer', parentId: 1 },
-  { id: 3, name: 'CFO', description: 'Chief Financial Officer', parentId: 1 },
-  { id: 4, name: 'Project Manager', description: 'Technology Project Manager', parentId: 2 },
-];
+import demoPositions from '../data/demoPositions.json';
+import { Position } from '@/types/position';
 
 export default function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Initialize with sample data
-    dispatch(setPositions(initialPositions));
+    dispatch(setPositions(demoPositions as Position[]));
+    
+    console.log('Demo positions loaded:', demoPositions);
   }, [dispatch]);
 
   return (
