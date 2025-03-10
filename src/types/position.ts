@@ -1,6 +1,6 @@
 export interface Position {
-  id: number;
+  id: string;
   name: string;
   description: string;
-  parentId: number | null;
+  parentId: string | null;
 }
