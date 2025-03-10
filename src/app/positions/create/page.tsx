@@ -12,12 +12,12 @@ import { addPosition } from '@/store/positionSlice';
 import { Position } from '@/types/position';
 import Link from 'next/link';
 import { IconAlertCircle } from '@tabler/icons-react';
-import axios from 'axios';
+import { positionApi } from '@/services/positionApi';
 
 const schema = yup.object({
   name: yup.string().required('Position name is required').min(2, 'Position name must be at least 2 characters'),
   description: yup.string().required('Description is required').min(5, 'Description must be at least 5 characters'),
-  parentId: yup.number().nullable(),
+  parentId: yup.string().nullable(),
 });
 
 type FormValues = yup.InferType<typeof schema>;
@@ -28,11 +28,6 @@ export default function CreatePositionPage() {
   const positions = useSelector((state: RootState) => state.positions.positions);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const getNextId = () => {
-    if (positions.length === 0) return 1;
-    return Math.max(...positions.map(p => p.id)) + 1;
-  };
 
   const { 
     control, 
@@ -52,13 +47,13 @@ export default function CreatePositionPage() {
       setLoading(true);
       setError(null);
       
-      const newPosition: Position = {
-        id: getNextId(),
+      const positionData: Omit<Position, 'id'> = {
         name: values.name.trim(),
         description: values.description.trim(),
-        parentId: values.parentId === undefined ? null : values.parentId,
+        parentId: values.parentId || null,
       };
       
+      const newPosition = await positionApi.create(positionData);
       dispatch(addPosition(newPosition));
       router.push('/positions');
     } catch (err) {
@@ -70,7 +65,7 @@ export default function CreatePositionPage() {
   };
 
   const parentOptions = positions.map(position => ({
-    value: position.id.toString(),
+    value: position.id,
     label: position.name,
   }));
   
@@ -129,8 +124,8 @@ export default function CreatePositionPage() {
                 data={parentOptions}
                 clearable
                 className="transition-all duration-200 hover:shadow-sm"
-                onChange={(value) => field.onChange(value ? parseInt(value) : null)}
-                value={field.value?.toString() || ''}
+                onChange={(value) => field.onChange(value || null)}
+                value={field.value || ''}
               />
             )}
           />

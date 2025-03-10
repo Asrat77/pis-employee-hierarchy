@@ -15,7 +15,7 @@ export default function EditPositionPage() {
   const dispatch = useDispatch();
   const router = useRouter();
   const params = useParams();
-  const positionId = parseInt(params.id as string);
+  const positionId = params.id;
   
   const positions = useSelector((state: RootState) => state.positions.positions);
   const position = positions.find(p => p.id === positionId);
@@ -140,7 +140,7 @@ export default function EditPositionPage() {
             mb="xl"
             clearable
             value={form.values.parentId?.toString() || ''}
-            onChange={(value) => form.setFieldValue('parentId', value ? parseInt(value) : null)}
+            onChange={(value) => form.setFieldValue('parentId', value ? value : null)}
           />
           
           <Group justify="flex-end">

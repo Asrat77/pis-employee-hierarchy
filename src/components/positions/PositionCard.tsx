@@ -1,6 +1,3 @@
-// Update the PositionCard component to include an edit button
-// Add this to your existing PositionCard component
-
 import { Card, Text, Group, Button, Badge } from '@mantine/core';
 import { IconEdit, IconTrash } from '@tabler/icons-react';
 import { Position } from '@/types/position';
@@ -9,7 +6,7 @@ import Link from 'next/link';
 interface PositionCardProps {
   position: Position;
   parentName?: string;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
 }
 
 export function PositionCard({ position, parentName, onDelete }: PositionCardProps) {
